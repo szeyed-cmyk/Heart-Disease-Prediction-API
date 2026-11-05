@@ -1,6 +1,14 @@
 # Heart Disease Prediction API
 
-A FastAPI application that predicts the presence of heart disease using a Random Forest classifier trained on the UCI Heart Disease dataset. The app is containerized with Docker and ready for deployment on Render.
+A FastAPI application that predicts the presence of heart disease using a Random Forest classifier trained on the UCI Heart Disease dataset. The app is containerized with Docker and deployed on Render.
+
+## Live Demo
+
+**Deployed URL:** [https://heart-disease-prediction-api-z2vh.onrender.com](https://heart-disease-prediction-api-z2vh.onrender.com)
+
+- Swagger UI: [https://heart-disease-prediction-api-z2vh.onrender.com/docs](https://heart-disease-prediction-api-z2vh.onrender.com/docs)
+- Health: [https://heart-disease-prediction-api-z2vh.onrender.com/health](https://heart-disease-prediction-api-z2vh.onrender.com/health)
+- Info: [https://heart-disease-prediction-api-z2vh.onrender.com/info](https://heart-disease-prediction-api-z2vh.onrender.com/info)
 
 ## Features
 
@@ -8,6 +16,26 @@ A FastAPI application that predicts the presence of heart disease using a Random
 - `GET /info` — Returns model type and feature list
 - `POST /predict` — Predicts heart disease (`true`/`false`) with probability
 - Interactive Swagger UI at `/docs`
+
+## Model Performance
+
+| Metric | Score |
+|--------|-------|
+| Cross-validation Accuracy | 85.05% |
+| Test Accuracy | 80.33% |
+| Precision | 83.87% |
+| Recall | 78.79% |
+| F1 Score | 81.25% |
+
+**Algorithm:** Random Forest Classifier
+
+## API Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/health` | Check API health |
+| GET | `/info` | Get model information |
+| POST | `/predict` | Generate a prediction |
 
 ## Project Structure
 
@@ -100,7 +128,7 @@ docker-compose down
 ## Example Prediction Request
 
 ```bash
-curl -X POST "http://localhost:8000/predict" \
+curl -X POST "https://heart-disease-prediction-api-z2vh.onrender.com/predict" \
   -H "Content-Type: application/json" \
   -d '{
     "age": 52,
@@ -120,6 +148,13 @@ curl -X POST "http://localhost:8000/predict" \
 ```
 
 ## Deployment on Render
+
+The application is deployed on Render:
+
+- **Live URL:** [https://heart-disease-prediction-api-z2vh.onrender.com](https://heart-disease-prediction-api-z2vh.onrender.com)
+- **Swagger Docs:** [https://heart-disease-prediction-api-z2vh.onrender.com/docs](https://heart-disease-prediction-api-z2vh.onrender.com/docs)
+
+### Deployment Steps (for reference)
 
 1. Push this project to a GitHub repository.
 2. Go to [Render](https://render.com) and create a new **Web Service**.
